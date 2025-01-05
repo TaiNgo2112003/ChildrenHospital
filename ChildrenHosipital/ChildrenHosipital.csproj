@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DA4FB9D7-98B6-471C-A0AA-7BFF978498EB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ChildrenHosipital</RootNamespace>
+    <AssemblyName>ChildrenHosipital</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.4, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.4\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppointmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppointmentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AppointmentController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
+    <Compile Include="Controllers\IController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MedicineController.cs" />
+    <Compile Include="Controllers\PatientController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Db\Dbconnection.cs" />
+    <Compile Include="DepartmentDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DepartmentDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HospitalDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="MedicinesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicinesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppointmentServiceModel.cs" />
+    <Compile Include="Models\TemporaryMedicineModel.cs" />
+    <Compile Include="PatientDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PatientDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AddDoctor.Designer.cs">
+      <DependentUpon>AddDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppointmentModel.cs" />
+    <Compile Include="Models\DepartmentModel.cs" />
+    <Compile Include="Models\DoctorModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MedicineModel.cs" />
+    <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Models\ServiceModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Appointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Appointments.Designer.cs">
+      <DependentUpon>Appointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Departments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Departments.Designer.cs">
+      <DependentUpon>Departments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Doctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Doctors.Designer.cs">
+      <DependentUpon>Doctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medicines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medicines.Designer.cs">
+      <DependentUpon>Medicines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Patients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Patients.Designer.cs">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfilePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProfilePage.Designer.cs">
+      <DependentUpon>ProfilePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Services.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Services.Designer.cs">
+      <DependentUpon>Services.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SupportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SupportForm.Designer.cs">
+      <DependentUpon>SupportForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\AddDoctor.resx">
+      <DependentUpon>AddDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Appointments.resx">
+      <DependentUpon>Appointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Departments.resx">
+      <DependentUpon>Departments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Doctors.resx">
+      <DependentUpon>Doctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medicines.resx">
+      <DependentUpon>Medicines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Patients.resx">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProfilePage.resx">
+      <DependentUpon>ProfilePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Services.resx">
+      <DependentUpon>Services.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SupportForm.resx">
+      <DependentUpon>SupportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="AppointmentDataSet.xsc">
+      <DependentUpon>AppointmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AppointmentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AppointmentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AppointmentDataSet.xss">
+      <DependentUpon>AppointmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DepartmentDataSet.xsc">
+      <DependentUpon>DepartmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DepartmentDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DepartmentDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DepartmentDataSet.xss">
+      <DependentUpon>DepartmentDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HospitalDataSet.xsc">
+      <DependentUpon>HospitalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HospitalDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HospitalDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HospitalDataSet.xss">
+      <DependentUpon>HospitalDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicinesDataSet.xsc">
+      <DependentUpon>MedicinesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicinesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicinesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicinesDataSet.xss">
+      <DependentUpon>MedicinesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="PatientDataSet.xsc">
+      <DependentUpon>PatientDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PatientDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PatientDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PatientDataSet.xss">
+      <DependentUpon>PatientDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="ServiceDataSet.xsc">
+      <DependentUpon>ServiceDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ServiceDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ServiceDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ServiceDataSet.xss">
+      <DependentUpon>ServiceDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\employee-50.png" />
+    <Content Include="Resources\employee.png" />
+    <Content Include="Resources\icons8-account-50.png" />
+    <Content Include="Resources\icons8-add-40.png" />
+    <Content Include="Resources\icons8-analytics-50.png" />
+    <Content Include="Resources\icons8-chart.gif" />
+    <Content Include="Resources\icons8-control.gif" />
+    <Content Include="Resources\icons8-detail-50.png" />
+    <Content Include="Resources\icons8-employee-48.png" />
+    <Content Include="Resources\icons8-employee-50.png" />
+    <Content Include="Resources\icons8-home-40.png" />
+    <Content Include="Resources\icons8-home-50.png" />
+    <Content Include="Resources\icons8-home.gif" />
+    <Content Include="Resources\icons8-inventory-48.png" />
+    <Content Include="Resources\icons8-menu-50.png" />
+    <Content Include="Resources\icons8-order-48.png" />
+    <Content Include="Resources\icons8-product-50.png" />
+    <Content Include="Resources\icons8-promotion-40.png" />
+    <Content Include="Resources\icons8-shipping-16.png" />
+    <Content Include="Resources\icons8-shipping-40.png" />
+    <Content Include="Resources\icons8-shopping-cart-50.png" />
+    <Content Include="Resources\IMG-32-1.png" />
+    <Content Include="Resources\register.png" />
+    <Content Include="Resources\supportIcon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
